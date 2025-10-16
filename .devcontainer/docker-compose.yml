@@ -1,0 +1,38 @@
+services:
+  py-app:
+    container_name: py-nvidia-app
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+    # Use the image for faster startup - comment out the build section above if using this.
+    # image: "python3/devcontainer"
+    restart: unless-stopped
+    volumes:
+      - ../..:/workspaces:cached
+
+    # Enable GPU support
+    deploy:
+          resources:
+            reservations:
+              devices:
+                - driver: nvidia
+                  count: all # Ou o número de GPUs que você precisa
+                  capabilities: [gpu]
+
+    # Overrides default command so things don't shut down after the process ends.
+    command: sleep infinity
+
+    # Use "forwardPorts" in **devcontainer.json** to forward an app port locally.
+    # (Adding the "ports" property to this file will not forward from a Codespace.)
+
+    # Runs app on the same network as the database container, 
+    # allows "forwardPorts" in devcontainer.json function.
+    # network_mode: service:py-postgre
+
+    networks:
+      - py-nvidia-network
+
+networks:
+  py-nvidia-network:
+    driver: bridge
+

@@ -2,15 +2,11 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/python
 {
   "name": "NVidia Python Basic for AI Workbench",
-  "remoteUser": "vscode", 
+  "dockerComposeFile": "docker-compose.yml",
+	"service": "py-app",
   "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
-  "build": {
-    "context": "..",
-    "dockerfile": "Dockerfile"
-    // Optional: Use a specific NVIDIA CUDA image as a base in your Dockerfile
-    
-  },
-  "runArgs": ["--gpus", "all" ],
+  "remoteUser": "vscode",
+
   // Optional: Forward the default Jupyter port
   "forwardPorts": [8888],
   "customizations": {
