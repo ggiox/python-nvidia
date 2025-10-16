@@ -1,0 +1,25 @@
+# This file lists the Python packages required to run the application.
+# Using in dockerfile from devcontainer vscode
+# You can install the packages listed in this file using pip:
+# pip install -r requirements.txt
+# See the pip documentation for more details:
+# https://pip.pypa.io/en/stable/reference/requirements-file-format/
+
+# Necessário para o VS Code se comunicar com o Python como um kernel Jupyter
+# Já instalado no ambiente base
+#ipykernel
+
+# Bibliotecas para notebooks Jupyter
+# Já instalado no ambiente base
+#jupyterlab
+#notebook
+
+# Suas bibliotecas de ML com suporte a GPU
+# Já instalado no ambiente base
+#torch
+#numpy
+#matplotlib
+
+# Bibliotecas para manipulação de dados
+pandas
+
