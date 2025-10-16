@@ -6,19 +6,16 @@
 # https://pip.pypa.io/en/stable/reference/requirements-file-format/
 
 # Necessário para o VS Code se comunicar com o Python como um kernel Jupyter
-# Já instalado no ambiente base
-#ipykernel
+ipykernel
 
 # Bibliotecas para notebooks Jupyter
-# Já instalado no ambiente base
-#jupyterlab
-#notebook
+jupyterlab
+notebook
 
 # Suas bibliotecas de ML com suporte a GPU
 # Já instalado no ambiente base
-#torch
-#numpy
-#matplotlib
+numpy
+matplotlib
 
 # Bibliotecas para manipulação de dados
 pandas
