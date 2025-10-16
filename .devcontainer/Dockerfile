@@ -2,6 +2,19 @@
 # Check NVIDIA NGC catalog for appropriate images (e.g., Pytorch, Tensorflow, or a base CUDA image)
 FROM nvcr.io/nvidia/ai-workbench/python-basic:1.0.8
 
+ENV PYTHONUNBUFFERED 1
+
+# [Optional] Uncomment this section to install additional OS packages.
+#RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
+#     && apt-get -y install --no-install-recommends python3-pip
+
+# Instala pacotes básicos e o pip
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends python3-pip python3-venv && \
+    python3 -m pip install --upgrade pip setuptools wheel && \
+    rm -rf /var/lib/apt/lists/*
+
+
 # Crie um novo usuário e grupo não-root (ex: 'vscode' or 'appuser' com UID/GID 1000)
 ARG USER_UID=1000
 ARG USER_GID=1000
@@ -21,3 +34,6 @@ RUN pip3 --disable-pip-version-check --no-cache-dir install -r /tmp/pip-tmp/requ
 # Defina o diretório de trabalho principal e dê permissão ao novo usuário
 WORKDIR /workspace
 RUN chown -R $USER_NAME:$USER_GID /workspace
+
+# Crie um link simbólico para python3 como python
+RUN ln -s /usr/bin/python3 /usr/bin/python

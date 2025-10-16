@@ -9,11 +9,17 @@
 
   // Optional: Forward the default Jupyter port
   "forwardPorts": [8888],
+
   "customizations": {
-    "vscode": {
-      "settings": {
-        "python.defaultInterpreterPath": "/opt/conda/bin/python" // Adjust path as needed
-      },
+    "vscode": {      
+      "settings": {        
+        //"python.terminal.activateEnvironment": false,
+        //"python.terminal.launchArgs": [],
+        //"python.analysis.autoImportCompletions": true,
+        //"python.experiments.enabled": false,
+        //"python.terminal.shellIntegration.enabled": true
+        "python.defaultInterpreterPath": "/usr/bin/python3"
+      },      
       "extensions": [
         "ms-toolsai.jupyter",
         "ms-python.python" 
@@ -22,4 +28,5 @@
   },
   // Command to run after the container is created, can be used to verify GPU access
   "postCreateCommand": "nvidia-smi"  
+
 }
