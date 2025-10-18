@@ -21,7 +21,7 @@
         "python.defaultInterpreterPath": "/usr/bin/python"
       },      
       "extensions": [
-        //"ms-toolsai.jupyter",
+        "ms-toolsai.jupyter",
         "ms-python.python" 
       ]
     },

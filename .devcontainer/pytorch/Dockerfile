@@ -1,6 +1,7 @@
 # Use an official NVIDIA CUDA image with a specific CUDA version and OS (e.g., Ubuntu 20.04)
 # Check NVIDIA NGC catalog for appropriate images (e.g., Pytorch, Tensorflow, or a base CUDA image)
-FROM nvcr.io/nvidia/ai-workbench/pytorch:1.0.6
+# FROM nvcr.io/nvidia/ai-workbench/pytorch:1.0.6
+FROM nvcr.io/nvidia/pytorch:25.09-py3
 
 ENV PYTHONUNBUFFERED 1
 
