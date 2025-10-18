@@ -27,13 +27,13 @@ RUN groupadd --gid $USER_GID $USER_NAME && \
 # USER $USER_NAME
 
 # Install Python packages from requirements.txt
-COPY requirements.txt /tmp/pip-tmp/
+COPY basic/requirements.txt /tmp/pip-tmp/
 RUN pip3 --disable-pip-version-check --no-cache-dir install -r /tmp/pip-tmp/requirements.txt \
     && rm -rf /tmp/pip-tmp
 
 # Defina o diretório de trabalho principal e dê permissão ao novo usuário
-WORKDIR /workspace
-RUN chown -R $USER_NAME:$USER_GID /workspace
+WORKDIR /workspaces
+RUN chown -R $USER_NAME:$USER_GID /workspaces
 
 # Crie um link simbólico para python3 como python
 RUN ln -s /usr/bin/python3 /usr/bin/python

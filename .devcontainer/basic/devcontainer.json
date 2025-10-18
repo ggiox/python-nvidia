@@ -3,9 +3,9 @@
 {
   "name": "NVidia Python Basic for AI Workbench",
   "dockerComposeFile": "docker-compose.yml",
-	"service": "py-app",
-  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
-  "remoteUser": "vscode",
+	"service": "python-nvidia-app",
+  //"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "workspaceFolder": "/workspaces",
 
   // Optional: Forward the default Jupyter port
   "forwardPorts": [8888],
@@ -18,15 +18,22 @@
         //"python.analysis.autoImportCompletions": true,
         //"python.experiments.enabled": false,
         //"python.terminal.shellIntegration.enabled": true
-        "python.defaultInterpreterPath": "/usr/bin/python3"
+        "python.defaultInterpreterPath": "/usr/bin/python"
       },      
       "extensions": [
-        "ms-toolsai.jupyter",
+        //"ms-toolsai.jupyter",
         "ms-python.python" 
       ]
-    }
+    },
+    "devcontainer.settings": {
+      "openWorkspace": "/workspaces/.devcontainer/basic/workspaces.code-workspace"
+    }     
   },
+
   // Command to run after the container is created, can be used to verify GPU access
-  "postCreateCommand": "nvidia-smi"  
+  "postCreateCommand": "nvidia-smi",
+
+  // Use 'vscode' user as the default inside the container
+  "remoteUser": "vscode"
 
 }

@@ -1,11 +1,13 @@
 services:
-  py-app:
-    container_name: py-nvidia-app
+  python-nvidia-app:
+    container_name: python-nvidia-app
     build:
-      context: ..
-      dockerfile: .devcontainer/Dockerfile
+      context: ..      
+      # Use a specific Dockerfile, basic or pytorch
+      dockerfile: basic/Dockerfile
+      
     # Use the image for faster startup - comment out the build section above if using this.
-    # image: "python3/devcontainer"
+    # image: "python/ngc/devcontainer"
     restart: unless-stopped
     volumes:
       - ../..:/workspaces:cached
@@ -30,9 +32,9 @@ services:
     # network_mode: service:py-postgre
 
     networks:
-      - py-nvidia-network
+      - python-nvidia-network
 
 networks:
-  py-nvidia-network:
+  python-nvidia-network:
     driver: bridge
 

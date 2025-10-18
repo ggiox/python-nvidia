@@ -1,0 +1,39 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/python
+{
+  "name": "NVidia Pytorch for AI Workbench",
+  "dockerComposeFile": "docker-compose.yml",
+	"service": "pytorch-nvidia-app",
+  //"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "workspaceFolder": "/workspaces",
+
+  // Optional: Forward the default Jupyter port
+  "forwardPorts": [8888],
+
+  "customizations": {
+    "vscode": {      
+      "settings": {        
+        //"python.terminal.activateEnvironment": false,
+        //"python.terminal.launchArgs": [],
+        //"python.analysis.autoImportCompletions": true,
+        //"python.experiments.enabled": false,
+        //"python.terminal.shellIntegration.enabled": true
+        "python.defaultInterpreterPath": "/usr/bin/python"
+      },      
+      "extensions": [
+        "ms-toolsai.jupyter",
+        "ms-python.python"
+      ]
+    },
+    "devcontainer.settings": {
+      "openWorkspace": "/workspaces/.devcontainer/pytorch/workspaces.code-workspace"
+    }
+  },
+
+  // Command to run after the container is created, can be used to verify GPU access
+  "postCreateCommand": "nvidia-smi",
+
+  // Use 'vscode' user as the default inside the container
+  "remoteUser": "ubuntu"
+
+}
